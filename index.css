@@ -41,17 +41,26 @@ width: 68.625rem;
 height: 25.75rem;
 margin-inline: auto;
 
+border: 2px green solid;
+display: grid;
+grid-template-columns: 1fr 1fr;
+
+
+
 }
 
 .content {
 width: 31.75rem;
 height: 25.75rem;
+border: 2px blue solid;
 }
 
 .content header {
 width: 100%;
 height: 14rem;
-margin-bottom: 2.375rem;
+display: flex;
+flex-direction: column;
+
 
 }
 
@@ -61,6 +70,7 @@ background-image: linear-gradient(var(--gradient-content));
 background-clip: text;
 color:transparent;
 margin-bottom: 0.75rem;
+
 }
 
 .content header h1 {
@@ -73,9 +83,21 @@ width: auto;
 
 .questions {
 
-border: 2px red solid;
-width: 24.125rem;
+
+width: 25rem;
 height: 9.375rem;
+display: flex;
+flex-direction: column;
+gap: 2rem;
+
+
+& .items {
+display: grid;
+grid-template-columns: 1fr 10fr;
+
+
+
+}
 
 & .items span {
 font: var(--p-medium);
@@ -87,4 +109,97 @@ font: var(--p-small);
 color: var(--content-secondary);
 }
 
+
+}
+
+
+
+.content-form {
+border: 2px red solid;
+width: 30.125rem;
+height: 21.5rem;
+margin-left: 4rem;
+margin-block: 2.125rem;
+display: flex;
+flex-direction: column;
+}
+
+.title-form h2{
+font: var(--label-medium);
+color: var(--content-primary);
+}
+
+.title-form p {
+font: var(--p-large);
+color: var(--content-secondary);
+margin-bottom: 2.5rem;
+}
+
+.content-form form {
+
+display: flex;
+flex-direction: row;
+gap: 0.75rem;
+height: 8rem;
+border: 2px yellow solid;
+margin-bottom: 2.5rem;
+
+}
+
+.inputs {
+display:flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+width: 5.375rem;
+height: 5.5rem;
+background-color: var(--background-secondary);
+
+& label {
+font: var(--label-medium);
+color: #C7C9CC;
+width: 100%;
+text-align: center;
+height: 1.5rem;
+border: 1px aqua solid;
+
+}
+
+& input {
+width: 100%;
+height: 3.5rem;
+background-color: var(--background-secondary);
+text-align: center;
+color: #FFFFFF;
+font: var(--display-small);
+border: 1px white solid;
+list-style: none;
+
+
+
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+}
+
+.content-form button{
+width: 30.125rem;
+height: 3.5rem;
+border-radius: 8px;
+background-color: var(--background-tertiary);
+border: none;
+cursor: pointer;
+
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+
+font: var(--label-medium);
+color: #FFFFFF;
 }
