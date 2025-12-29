@@ -147,6 +147,7 @@ background-color: var(--background-secondary);
 & label {
 font: var(--label-medium);
 color: #C7C9CC;
+
 width: 100%;
 text-align: center;
 height: 1.5rem;
@@ -176,39 +177,36 @@ input::-webkit-inner-spin-button {
 
 }
 
-.content-form button{
-width: 30.125rem;
-height: 3.5rem;
-border-radius: 8px;
-background-color: var(--background-tertiary);
-border: none;
-cursor: pointer;
+
+.select {
 
 display: flex;
 align-items: center;
-justify-content: center;
+justify-content: start;
 gap: 8px;
+margin-bottom:40px;
 
-font: var(--label-medium);
-color: #FFFFFF;
 }
-
-
 
 .label-option {
 position: relative;
-width: 148px;
+width: 30px;
 height: 20px;
 display: inline-block;
-background-color: blue;
 z-index: 0;
 }
 
 .label-option input {
 
-width: 0;
-height: 0;
-opacity: 0;}
+position: relative;
+width: 100%;
+height: 100%;
+opacity: 0;
+margin:0;
+cursor:pointer;
+z-index: 2;
+
+}
 
 .slider {
 position: absolute;
@@ -218,9 +216,11 @@ height: 20px;
 background-color: var(--content-tertiary);
 border-radius: 16px;
 left:0;
+top:0;
 z-index: 1;
-cursor: pointer;
-transition: background 250ms ease;
+transition: background-image 1.5s ease;
+
+
 }
 
 .slider::before {
@@ -234,14 +234,71 @@ z-index: 2;
 top: 3px;
 left: 3px;
 bottom: 3px;
-transition: left 250ms ease, background 250ms ease;
-}
+transition: transform 700ms ease;
 
-.label-option input:checked + .slider {
-  background: linear-gradient(90deg, #84fab0 0%, #8fd3f4 100%);
 }
 
 .label-option input:checked + .slider::before {
-  left: calc(100% - 3px - 22px); /* desloca o knob para a borda direita */
-  background: #fff;
+   transform: translateX(10px);
+}
+
+.label-option input:checked + .slider {
+   background-image: linear-gradient(var(--gradient-background));
+}
+
+.texto {
+color: var(--content-primary);
+font-family: "Inter", sans-serif;
+font-size: 12px;
+line-height: 150%;
+}
+
+.content-form button{
+width: 30.125rem;
+height: 3.5rem;
+border-radius: 8px;
+border: 2px solid transparent;
+background:
+    linear-gradient(var(--bg-tertiary), var(--bg-tertiary)) padding-box,
+    linear-gradient(var(--bg-tertiary), var(--bg-tertiary)) border-box;
+
+  background-clip: padding-box, border-box;
+
+  background-size: 100% 100%, 100% 100%;
+  background-position: 0 0, 0 0;
+
+  transition: background-position 1s ease;
+
+background-color: var(--background-tertiary);
+
+cursor: pointer;
+
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+
+font: var(--label-medium);
+color: #FFFFFF;
+}
+
+
+.content-form button:hover {
+ background:
+    linear-gradient(var(--bg-tertiary), var(--bg-tertiary)) padding-box,
+    linear-gradient(var(--gradient-border)) border-box;
+
+  background-size: 100% 100%, 300% 300%;
+  background-position: 0 0, 100% 50%;
+}
+
+
+.content-form button img {
+transition: transform 800ms ease;
+}
+
+.content-form button:hover img{
+
+transform: translateX(10px);
+
 }
