@@ -178,7 +178,7 @@ content:"";
 width: 0px;
 height: 0px;
 position: absolute;
-padding: 2px;
+padding: 1px;
 bottom: 2px;
 left: -2.8px;
 border-radius: 8px;
@@ -323,11 +323,9 @@ transform: translateX(10px);
 
 
 
-
-
-
-
 .inputs:hover {
+
+
 
 & label {
    color: #C58DE7;
@@ -343,9 +341,36 @@ background: linear-gradient(var(--gradient-border));
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
+          cursor: pointer;
 
 }}
 
+
+
+.inputs:focus-within {
+
+
+  & input {
+    text-align: left;
+    padding-left: 28px;
+    box-sizing: border-box;
+    border: none;
+}
+
+  & label::before {
+content:"";
+width: 86.5px;
+height: 56.5px;
+background: linear-gradient(var(--gradient-border));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+padding: 2px;
+}
+
+}
 
 
 
