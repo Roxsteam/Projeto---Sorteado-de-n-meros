@@ -1,0 +1,65 @@
+.resultados {
+border: 1px solid #ccc;
+width: 30.125rem;
+height: 18.375rem;
+}
+
+.title {
+ border: 1px solid green;
+ width: 100%;
+ height: 3.625rem;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ margin-bottom: 2.5rem;
+}
+
+.title h1 {
+font-family: 'Roboto flex', monospace;
+font-size: 1.25rem ;
+color: var(--content-primary);
+margin-inline: auto;
+margin-bottom: 4px;
+}
+
+.title p {
+font: var(--roboto-overline);
+color: var(--content-secondary);
+margin-inline: auto;
+}
+
+.content-result {
+border: 1px solid blue;
+width: 10.75rem;
+height: 6.25rem;
+margin-inline: auto;
+margin-bottom: 2.5rem;
+display: flex;
+}
+
+.sortear-again {
+width: 100%;
+height: 3.5rem;
+border-radius: 8px;
+background-color: var(--background-tertiary);
+border: none;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+font: var(--label-medium);
+color: var(--content-tertiary);
+position: relative;
+
+}
+
+.img-arrow {
+position: absolute;
+right: 145px;
+}
+
+.sortear-again:hover .img-circle {
+transform: rotate(360deg);
+ transition: transform 1.8s ease;
+}
