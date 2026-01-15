@@ -4,6 +4,10 @@ const fim = document.querySelector("#end-number");
 const botao = document.querySelector("button");
 const semRepetir = document.querySelector(".label-option input")
 
+// Seleciona as caixas de formulário inicial e o do resultado
+const formBox = document.querySelector(".content-form")
+const resultadoBox = document.querySelector(".content-result")
+
 botao.addEventListener("click", () =>{
 
 const quantidade = Number(qtd.value)
@@ -33,6 +37,41 @@ const numeros = semRepetir.checked
         : sortearComRepeticao(quantidade, min, max)
 
     alert("Números sorteados: " + numeros.join(", "))
+
+    // Alterna a exibição das caixas de formulário e resultado, fazendo sumir a primeira e aparecer a segunda ao clicar no botão
+    formBox.style.display = "none";
+    resultadoBox.style.display = "block";
+
+
+    // remove resultados anteriores, se houver
+    let lista = resultBox.querySelector(".lista");
+    if (lista) lista.remove();
+
+    // cria contêiner dos itens
+    lista = document.createElement("div");
+    lista.classList.add("lista");
+    lista.style.display = "flex";
+    lista.style.flexWrap = "wrap";
+    lista.style.gap = "12px";
+    lista.style.justifyContent = "center";
+    lista.style.minHeight = "140px";
+
+    resultBox.insertBefore(lista, resultBox.querySelector(".sortear-again"));
+
+    // cria 1 .content-result para cada número + animações
+    numeros.forEach((n, i) => {
+        const el = document.createElement("div");
+        el.className = "content-result";
+        el.textContent = n;
+        lista.appendChild(el);
+
+        setTimeout(() => el.classList.add("scale"), 50 + i * 120);
+        setTimeout(() => el.classList.add("rotate"), 350 + i * 120);
+        setTimeout(() => el.classList.add("fade-out"), 1200 + i * 120);
+    });
+
+
+
 })
 
 
