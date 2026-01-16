@@ -3,10 +3,12 @@ const inicio = document.querySelector("#start-number");
 const fim = document.querySelector("#end-number");
 const botao = document.querySelector("button");
 const semRepetir = document.querySelector(".label-option input")
+const formBox = document.querySelector(".content-form");
+const listResult = document.querySelector(".resultados");
 
 // Seleciona as caixas de formulário inicial e o do resultado
-const formBox = document.querySelector(".content-form")
-const resultadoBox = document.querySelector(".content-result")
+
+const resultBox = document.createElement("div")
 
 botao.addEventListener("click", () =>{
 
@@ -38,39 +40,47 @@ const numeros = semRepetir.checked
 
     alert("Números sorteados: " + numeros.join(", "))
 
-    // Alterna a exibição das caixas de formulário e resultado, fazendo sumir a primeira e aparecer a segunda ao clicar no botão
-    formBox.style.display = "none";
-    resultadoBox.style.display = "block";
+   // Remove a classe mais próxima do evento de clicar que no caso é o .content-form
+    const removed = event.target.closest(".content-form");
+    removed.remove();
+    
+    // Cria os elementos para aparecer os resultados do sorteio
+    const divResult = document.createElement("div");
+    divResult.classList.add("title");
+
+    const h1Result = document.createElement("h1");
+    h1Result.textContent = "RESULTADO SORTEIO";
+    divResult.appendChild(h1Result);
 
 
-    // remove resultados anteriores, se houver
-    let lista = resultBox.querySelector(".lista");
-    if (lista) lista.remove();
+    const pResult = document.createElement("p");
+    pResult.textContent = "1º RESULTADO";
+    divResult.appendChild(pResult);
 
-    // cria contêiner dos itens
-    lista = document.createElement("div");
-    lista.classList.add("lista");
-    lista.style.display = "flex";
-    lista.style.flexWrap = "wrap";
-    lista.style.gap = "12px";
-    lista.style.justifyContent = "center";
-    lista.style.minHeight = "140px";
+    listResult.appendChild(divResult);
+  
+    const areaResult = document.createElement("div");
+    areaResult.classList.add("content-result");
+  
+    listResult.appendChild(areaResult);
 
-    resultBox.insertBefore(lista, resultBox.querySelector(".sortear-again"));
+    const sortearButton = document.createElement("button");
+    sortearButton.textContent = "SORTEAR NOVAMENTE";
+    sortearButton.classList.add("sortear-again");
 
-    // cria 1 .content-result para cada número + animações
-    numeros.forEach((n, i) => {
-        const el = document.createElement("div");
-        el.className = "content-result";
-        el.textContent = n;
-        lista.appendChild(el);
+    const imgCircle = document.createElement("img");
+    imgCircle.src = "assets/Vector (Stroke).svg";
+    imgCircle.classList.add("img-circle")
+    
+    const imgArrow = document.createElement("img");
+    imgArrow.src = "assets/Vector.svg"
+    imgArrow.classList.add("img-arrow")
 
-        setTimeout(() => el.classList.add("scale"), 50 + i * 120);
-        setTimeout(() => el.classList.add("rotate"), 350 + i * 120);
-        setTimeout(() => el.classList.add("fade-out"), 1200 + i * 120);
-    });
+    sortearButton.appendChild(imgCircle);
+    sortearButton.appendChild(imgArrow);
 
-
+    
+    listResult.appendChild(sortearButton);
 
 })
 
