@@ -1,5 +1,6 @@
 @import url(global.css);
 @import url(resultado.css);
+@import url(animation.css);
 
 @media (width <= 24.375rem) {
 
