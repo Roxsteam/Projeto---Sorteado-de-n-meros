@@ -63,20 +63,23 @@ const numeros = semRepetir.checked
     
     for (let i = 0; i < quantidade; i++) {
         
-        
-    const areaResult = document.createElement("div");
-    areaResult.classList.add("content-result");
+    setTimeout(() => {   
+    const areaResult = document.createElement("div")
+    areaResult.classList.add("content-result")
     
-    // Controla o delay da animação para cada número
-    areaResult.style.animationDelay = `${i * 4}s`;
+ 
 
-    const spanResult = document.createElement("span");
+    const spanResult = document.createElement("span")
     spanResult.textContent = numeros[i];  // ← Acessa cada número pelo índice
     
     areaResult.appendChild(spanResult);  
     listResult.appendChild(areaResult);
+    }, i*4000  ) 
+
 }
 
+
+    setTimeout( () =>{
     const sortearButton = document.createElement("button");
     sortearButton.textContent = "SORTEAR NOVAMENTE";
     sortearButton.classList.add("sortear-again");
@@ -93,19 +96,12 @@ const numeros = semRepetir.checked
     sortearButton.appendChild(imgArrow);
 
     
+    
     listResult.appendChild(sortearButton);
-
-
+    
     const buttonAgain = document.querySelector(".sortear-again");
     buttonAgain.addEventListener("click", () => {
-        window.location.reload();
-
-
-
-    })
-
-
-
+        window.location.reload() }) }, quantidade*4000 + 1000)
 })
 
 

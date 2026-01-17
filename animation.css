@@ -37,9 +37,10 @@
   100% {
     /* Tamanho final, número em cor rosa (content-brand) */
     opacity: 1;
-    transform: scale(1) ;
+    transform: scale(1) rotateZ(720deg);
     color: var(--content-brand);
-    background-color: black;
-    transform: translateX(-80px);
-  }
+    background-color: black; 
+   }
 }
+
+
